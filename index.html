@@ -39,7 +39,7 @@
                     this.setState({editing: false})
                 }
 
-                delete = () => {
+                delete = (id) => {
                     this.props.onRemove(this.props.id)
                 }
 
@@ -58,7 +58,7 @@
                             <p>{this.props.children}</p>
                             <span>
                                 <button onClick={this.edit}>Edit</button>
-                                <button onClick={this.deleting}>X</button>
+                                <button onClick={this.delete}>X</button>
                             </span>
                         </div>
                     )
@@ -100,7 +100,7 @@
 
                 remove = (id) =>{
                     var notes = this.state.notes.filter(note => note.id !== id)
-                    this.setState({note})
+                    this.setState({notes})
                 }
                 
                 eachNote = (note) => {
