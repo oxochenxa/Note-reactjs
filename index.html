@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            .note{
+                width: 250px;
+                height: 150px;
+                background-color: yellow;
+                padding: 15px;
+                border: 1 solid orange;
+                box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="react-container"></div>
+
+        <script type="text/babel">
+            class Note extends React.Component {
+
+                render(){
+                    return(
+                        <div className="note">
+                            <p></p>
+                            <span>
+                                <button>Edit</button>
+                                <button>X</button>
+                            </span>
+                        </div>
+                    )
+                }
+            }
+
+            ReactDOM.render(<Note></Note>, document.getElementById('react-container'))
+        </script>
+    </body>
+</html>
