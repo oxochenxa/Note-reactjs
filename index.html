@@ -77,13 +77,24 @@
                 constructor(props){
                     super(props);
                     this.state = {
-                        notes: [
-                            {id: 0, note:'Call Rahul'},
-                            {id: 1, note:'Make Prototype'},
-                            {id: 2, note:'Submit project'},
-                            {id: 3, note:'Send Rahul Email'}
-                        ]
+                        notes: []
                     }
+                }
+                
+                nextId = () => {
+                    this.uniqueId = this.uniqueId || 0
+                    return this.uniqueId++
+                }
+
+                add = (text) =>{
+                    var notes = [
+                        ...this.state.notes,
+                        {
+                            id: this.nextId(),
+                            note: text
+                        }
+                    ]
+                    this.setState({notes})
                 }
 
                 update = (newText, id) => {
@@ -111,6 +122,7 @@
                     return(
                         <div className="board">
                             {this.state.notes.map(this.eachNote)}
+                            <button onClick={()=>this.add()}>+</button>
                         </div>
                     )
                 }
